@@ -46,18 +46,9 @@ class Strategy(nn.Module):
         """
         pass
 
-    def neural_net(self, samples, **kwargs) -> torch.Tensor:
+    def neural_net(self, x, **kwargs) -> torch.Tensor:
         """
         the neural network part for approximating the indicator function of the stopping time
-        (see, equation (7))
-        args:
-            samples: torch.Tensor
-              the predicted samples for mini-batches of the time series,
-              shape = (num_samples, input_dim, prediction_length+1)
-
-        return:
-            h: torch.Tensor
-              the outputs, shape = (num_samples, input_dim, prediction_length+1)
         """
         pass
 
@@ -94,4 +85,3 @@ class Strategy(nn.Module):
             name = 'checkpoints/' + self.model_name + '_' + time.strftime('%y%m%d_%H%M%S')
         torch.save(self.state_dict(), name)
         return name
-
