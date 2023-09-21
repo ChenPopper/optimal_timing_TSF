@@ -88,7 +88,7 @@ class TimingStrategy(Strategy):
               shape = (num_samples, input_dim, prediction_length+1)
         return:
             indicators: torch.Tensor
-              indicator calculated by approx_indicator function. (see, equation (8))
+              indicator calculated by approx_indicator function. (see, equation (9))
               shape = (num_samples, input_dim, prediction_length+1)
         """
         approx_d = net_output[:, :, 0:1]
@@ -124,13 +124,13 @@ class TimingStrategy(Strategy):
     def objective_function(samples, indicators) -> torch.Tensor:
         """
         The target functional to be minimized, which can be treated as value function in RL.
-        (see, equation (11))
+        (see, equation (13))
         args:
             samples: torch.Tensor
               the predicted samples for mini-batches of the time series,
               shape = (num_samples, input_dim, prediction_length+1)
             indicators: torch.Tensor
-              indicator calculated by approx_indicator function. (see, equation (8))
+              indicator calculated by approx_indicator function,
               shape = (num_samples, input_dim, prediction_length+1)
         return:
             total_cost: torch.Tensor, shape -> (1)
