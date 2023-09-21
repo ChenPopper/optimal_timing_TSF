@@ -48,18 +48,18 @@ class Strategy(nn.Module):
 
     def neural_net(self, x, **kwargs) -> torch.Tensor:
         """
-        the neural network part for approximating the indicator function of the stopping time
+        the neural network part for approximating the indicator function of the stopping time (see equation (9))
         """
         pass
 
     def approx_indicator(self, net_output, samples, **kwargs) -> torch.Tensor:
         """
         calculate the approximated functions of the indicator function of stopping times
-        (see, equations (6, 7) in the draft)
+        (see, equations (8, 9) in the draft)
         args:
             net_output: torch.Tensor
               the outputs of the neural network for approximating the indicator function of the stopping time
-              (see, equation (7)),
+              (see, equation (9)),
               shape = (num_samples, input_dim, prediction_length+1)
             samples: torch.Tensor
               the predicted samples for mini-batches of the time series,
