@@ -78,7 +78,8 @@ class TimingStrategy(Strategy):
 
     def approx_indicator(self, net_output, samples, **kwargs) -> torch.Tensor:
         """
-        Indicator function can be approximated by the following code (see equation (8))
+        Indicator function can be approximated by the following code (see equation (8)),
+        
         args:
             net_output: torch.Tensor
               neural network output ht: R_(N, C, P+1) -> (0, 1)
@@ -106,7 +107,8 @@ class TimingStrategy(Strategy):
     def neural_net(self, x) -> torch.Tensor:
         """
         the neural network part for approximating the indicator function h_t() of the stopping time
-        in equation (9)
+        in equation (9), which plays the role of the behavior policy as in the Off-Policy algorithm
+        in reinforcement learning 
         args:
             x: torch.Tensor
               the outputs of the rnn encoder,
